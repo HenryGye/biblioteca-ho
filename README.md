@@ -584,3 +584,407 @@ Elimina un libro.
     "isbn": "978-84-95922-77-19"
 }
  ```
+
+
+## Endpoint: `/autores`
+
+### Description
+
+Lista todos los autores de la base de datos.
+
+### Request
+
+- **Method:** GET
+- **URL:** `http://localhost:8080/autores`
+- **Authorization:** Bearer {token}
+    
+
+### Response
+
+- **Content-Type:** application/json
+- **Body:**
+    
+
+``` json
+[
+    {
+        "_id": {
+            "$oid": "665c266f3e64593dbf08938b"
+        },
+        "nombre_completo": "Gabriel García Márquezaa4",
+        "fecha_nacimiento": "1927-03-06",
+        "nacionalidad": "Colombiano",
+        "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+        "libros_publicados": [
+            "Cien años de soledad",
+            "El amor en los tiempos del cólera",
+            "Crónica de una muerte anunciada"
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "665c266f3e64593dbf08938c"
+        },
+        "nombre_completo": "Gabriel García Márquezaa2",
+        "fecha_nacimiento": "1927-03-06",
+        "nacionalidad": "Colombiano",
+        "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+        "libros_publicados": [
+            "Cien años de soledad",
+            "El amor en los tiempos del cólera",
+            "Crónica de una muerte anunciada"
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "665c26903e64593dbf08938e"
+        },
+        "nombre_completo": "Gabriel García Márquezaa44",
+        "fecha_nacimiento": "1927-03-06",
+        "nacionalidad": "Colombiano",
+        "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+        "libros_publicados": [
+            "Cien años de soledad",
+            "El amor en los tiempos del cólera",
+            "Crónica de una muerte anunciada"
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "665c26903e64593dbf08938f"
+        },
+        "nombre_completo": "Gabriel García Márquezaa21",
+        "fecha_nacimiento": "1927-03-06",
+        "nacionalidad": "Colombiano",
+        "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+        "libros_publicados": [
+            "Cien años de soledad",
+            "El amor en los tiempos del cólera",
+            "Crónica de una muerte anunciada"
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "665c26c33e64593dbf089391"
+        },
+        "nombre_completo": "Gabriel García Márquezaa445",
+        "fecha_nacimiento": "1500-03-06",
+        "nacionalidad": "Peruana2",
+        "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+        "libros_publicados": [
+            "Cien años de soledad",
+            "El amor en los tiempos del cólera",
+            "Crónica de una muerte anunciada"
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "665c26c33e64593dbf089392"
+        },
+        "nombre_completo": "Gabriel García Márquezaa213",
+        "fecha_nacimiento": "1927-03-06",
+        "nacionalidad": "Ecuatorianawww",
+        "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+        "libros_publicados": [
+            "Cien años de soledad",
+            "El amor en los tiempos del cólera",
+            "Crónica de una muerte anunciada"
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "665d388398505004bf05c872"
+        },
+        "nombre_completo": "Henry Ortiz",
+        "fecha_nacimiento": "1996-06-27",
+        "nacionalidad": "Ecuatoriano",
+        "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+        "libros_publicados": [
+            "Cien años de soledad",
+            "El amor en los tiempos del cólera",
+            "Crónica de una muerte anunciada"
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "665d3c4f98505004bf05c874"
+        },
+        "nombre_completo": "Henry Ortiz 3",
+        "fecha_nacimiento": "1996-06-27",
+        "nacionalidad": "Ecuatoriano",
+        "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+        "libros_publicados": [
+            "Cien años de soledad",
+            "El amor en los tiempos del cólera",
+            "Crónica de una muerte anunciada"
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "665df1aaa853345b870afb03"
+        },
+        "nombre_completo": "Gabriel García Márquezaa445ddd",
+        "fecha_nacimiento": "1927-03-06",
+        "nacionalidad": "Colombiano",
+        "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+        "libros_publicados": [
+            "Cien años de soledad",
+            "El amor en los tiempos del cólera",
+            "Crónica de una muerte anunciada"
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "665df1aaa853345b870afb04"
+        },
+        "nombre_completo": "Gabriel García Márquezaa213ddd",
+        "fecha_nacimiento": "1927-03-06",
+        "nacionalidad": "Colombiano",
+        "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+        "libros_publicados": [
+            "Cien años de soledad",
+            "El amor en los tiempos del cólera",
+            "Crónica de una muerte anunciada"
+        ]
+    }
+]
+ ```
+
+
+## Endpoint: `/autores?nombre=gabriel&nacionalidad=ecuatoria`
+
+### Description
+
+Lista los autores filtrado por autor o nacionalidad.
+
+### Request
+
+- **Method:** GET
+- **URL:** `http://localhost:8080/autores?nombre=gabriel&nacionalidad=ecuatoria`
+- **Authorization:** Bearer {token}
+    
+
+### Response
+
+- **Content-Type:** application/json
+- **Body:**
+    
+
+``` json
+[
+    {
+        "_id": {
+            "$oid": "665c26c33e64593dbf089392"
+        },
+        "nombre_completo": "Gabriel García Márquezaa213",
+        "fecha_nacimiento": "1927-03-06",
+        "nacionalidad": "Ecuatorianawww",
+        "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+        "libros_publicados": [
+            "Cien años de soledad",
+            "El amor en los tiempos del cólera",
+            "Crónica de una muerte anunciada"
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "665d388398505004bf05c872"
+        },
+        "nombre_completo": "Henry Ortiz",
+        "fecha_nacimiento": "1996-06-27",
+        "nacionalidad": "Ecuatoriano",
+        "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+        "libros_publicados": [
+            "Cien años de soledad",
+            "El amor en los tiempos del cólera",
+            "Crónica de una muerte anunciada"
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "665d3c4f98505004bf05c874"
+        },
+        "nombre_completo": "Henry Ortiz 3",
+        "fecha_nacimiento": "1996-06-27",
+        "nacionalidad": "Ecuatoriano",
+        "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+        "libros_publicados": [
+            "Cien años de soledad",
+            "El amor en los tiempos del cólera",
+            "Crónica de una muerte anunciada"
+        ]
+    }
+]
+ ```
+
+
+## Endpoint: `/autores/665d3c4f98505004bf05c874`
+
+### Description
+
+Lista un autor por id.
+
+### Request
+
+- **Method:** GET
+- **URL:** `http://localhost:8080/autores/665d3c4f98505004bf05c874`
+- **Authorization:** Bearer {token}
+    
+
+### Response
+
+- **Content-Type:** application/json
+- **Body:**
+    
+
+``` json
+{
+    "_id": "665d3c4f98505004bf05c874",
+    "nombre_completo": "Henry Ortiz 3",
+    "fecha_nacimiento": "1996-06-27",
+    "nacionalidad": "Ecuatoriano",
+    "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+    "libros_publicados": [
+        "Cien años de soledad",
+        "El amor en los tiempos del cólera",
+        "Crónica de una muerte anunciada"
+    ]
+}
+ ```
+
+
+## Endpoint: `/autores`
+
+### Description
+
+Registra un libro.
+
+### Request
+
+- **Method:** POST
+- **URL:** `http://localhost:8080/autores`
+- **Authorization:** Bearer {token}
+    
+### Request
+
+- **Content-Type:** application/json
+- **Body:**
+
+
+``` json
+{
+    "nombre_completo": "Henry Ortiz 5",
+    "fecha_nacimiento": "1996-06-27",
+    "nacionalidad": "Ecuatoriano",
+    "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+    "libros_publicados": ["Cien años de soledad", "El amor en los tiempos del cólera", "Crónica de una muerte anunciada"]
+}
+```
+
+
+### Response
+
+- **Content-Type:** application/json
+- **Body:**
+    
+
+``` json
+{
+    "nombre_completo": "Henry Ortiz 5",
+    "fecha_nacimiento": "1996-06-27",
+    "nacionalidad": "Ecuatoriano",
+    "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+    "libros_publicados": [
+        "Cien años de soledad",
+        "El amor en los tiempos del cólera",
+        "Crónica de una muerte anunciada"
+    ],
+    "_id": "665df7b9a853345b870afb08"
+}
+ ```
+
+
+## Endpoint: `/autores/665df7b9a853345b870afb08`
+
+### Description
+
+Actualiza un autor.
+
+### Request
+
+- **Method:** PUT
+- **URL:** `http://localhost:8080/autores/665df7b9a853345b870afb08`
+- **Authorization:** Bearer {token}
+    
+### Request
+
+- **Content-Type:** application/json
+- **Body:**
+
+
+``` json
+{
+    "nombre_completo": "Henry Ortiz 555",
+    "fecha_nacimiento": "1996-06-27",
+    "nacionalidad": "Ecuatoriano",
+    "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+    "libros_publicados": ["Cien años de soledad", "El amor en los tiempos del cólera", "Crónica de una muerte anunciada"]
+}
+```
+
+
+### Response
+
+- **Content-Type:** application/json
+- **Body:**
+    
+
+``` json
+{
+    "_id": "665df7b9a853345b870afb08",
+    "nombre_completo": "Henry Ortiz 555",
+    "fecha_nacimiento": "1996-06-27",
+    "nacionalidad": "Ecuatoriano",
+    "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+    "libros_publicados": [
+        "Cien años de soledad",
+        "El amor en los tiempos del cólera",
+        "Crónica de una muerte anunciada"
+    ]
+}
+ ```
+
+
+## Endpoint: `/autores/665df7b9a853345b870afb08`
+
+### Description
+
+Elimina un autor.
+
+### Request
+
+- **Method:** DELETE
+- **URL:** `http://localhost:8080/autores/665df7b9a853345b870afb08`
+- **Authorization:** Bearer {token}
+    
+
+### Response
+
+- **Content-Type:** application/json
+- **Body:**
+    
+
+``` json
+{
+    "_id": "665df7b9a853345b870afb08",
+    "nombre_completo": "Henry Ortiz 555",
+    "fecha_nacimiento": "1996-06-27",
+    "nacionalidad": "Ecuatoriano",
+    "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+    "libros_publicados": [
+        "Cien años de soledad",
+        "El amor en los tiempos del cólera",
+        "Crónica de una muerte anunciada"
+    ]
+}
+ ```
