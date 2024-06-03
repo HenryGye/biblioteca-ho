@@ -94,6 +94,8 @@ db.autores.createIndex({ "nacionalidad": 1, "nombre_completo": 1 })
 
 # API Endpoint Documentación
 
+#### coleccion postman en raiz del proyecto `API REST Biblioteca PHP YII2.postman_collection.json`
+
 ## Endpoint: `/generate-token`
 
 ### Description
