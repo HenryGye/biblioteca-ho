@@ -70,7 +70,10 @@ class Libro extends ActiveRecord
 
         if ($autor !== null) {
             $autorIds = Autor::find()->select(['_id'])->where(['like', 'LOWER(nombre_completo)', strtolower($autor)])->column();
-            $pipeline[] = !empty($autorIds) ? ['$match' => ['autores' => ['$in' => $autorIds]]] : [];
+
+            if (!empty($autorIds)) {
+                $pipeline[] = ['$match' => ['autores' => ['$in' => $autorIds]]];
+            }
         }
 
         if ($anio !== null) {
