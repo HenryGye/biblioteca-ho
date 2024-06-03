@@ -44,6 +44,7 @@ CONFIGURACIÓN DEL PROYECTO
 
 ### Base de datos MongoDB
 
+Usar MongoDB compass o usar la terminal para ejecutar los comandos de mongo.
 * Crear la base de datos `biblioteca_ho`.
 * Crear el usuario de la base de datos (puede crear con otros datos si desea pero se debe configurar en el web.php):
 
