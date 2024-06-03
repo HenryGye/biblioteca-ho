@@ -1,0 +1,456 @@
+{
+	"info": {
+		"_postman_id": "261fb3a3-dd54-4bb8-b5e0-1aea00757ee8",
+		"name": "API REST Biblioteca PHP YII2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13676083"
+	},
+	"item": [
+		{
+			"name": "listar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTc0MzIxNzJ9.wlaH6WGmj-IMCwRBLKp_c-c7OiU9dHHZAj48FEyTdRw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/libros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libros"
+					]
+				},
+				"description": "# API Endpoint Documentation\n\n## Endpoint: `/libros`\n\n### Description\n\nThis endpoint retrieves all books from the database.\n\n### Request\n\n- **Method:** GET\n- **URL:** `http://localhost:8080/libros`\n- **Authorization:** Bearer {token}\n    \n\n### Response\n\n- **Content-Type:** application/json\n- **Body:**\n    \n\n``` json\n[\n    {\n        \"titulo\": \"El nombre del viento\",\n        \"autores\": [\n            {\n                \"nombre_completo\": \"Patrick Rothfuss\",\n                \"fecha_nacimiento\": \"1973-06-06\",\n                \"nacionalidad\": \"Estadounidense\",\n                \"biografia\": \"Patrick Rothfuss es un escritor estadounidense.\",\n                \"libros_publicados\": [\"El nombre del viento\", \"El temor de un hombre sabio\"]\n            }\n        ],\n        \"anio_publicacion\": 2007,\n        \"generos\": [\"Fantasía\", \"Aventura\"],\n        \"descripcion\": \"La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss.\",\n        \"isbn\": \"978-84-95922-77-10\"\n    },\n    {\n        \"titulo\": \"El temor de un hombre sabio\",\n        \"autores\": [\n            {\n                \"nombre_completo\": \"Patrick Rothfuss\",\n                \"fecha_nacimiento\": \"1973-06-06\",\n                \"nacionalidad\": \"Estadounidense\",\n                \"biografia\": \"Patrick Rothfuss es un escritor estadounidense.\",\n                \"libros_publicados\": [\"El nombre del viento\", \"El temor de un hombre sabio\"]\n            }\n        ],\n        \"anio_publicacion\": 2011,\n        \"generos\": [\"Fantasía\", \"Aventura\"],\n        \"descripcion\": \"La segunda parte de la crónica del asesino de reyes.\",\n        \"isbn\": \"978-84-95922-78-7\"\n    }\n]\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "GET generate-token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/generate-token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"generate-token"
+					]
+				},
+				"description": "## Endpoint: `/generate-token`\n\n### Description\n\nEste endpoint se utiliza para generar un token JWT (JSON Web Token) que se utilizará para la autenticación de las apis.\n\n### Request\n\n- **Method:** GET\n- **URL:** `http://localhost:8080/generate-token`\n\n### Response\n\n- **Content-Type:** application/json\n- **Body:**\n    \n\n``` json\n{\n    \"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTczOTEwMzl9.XC_gT7qLFxKmstCkGBQfYwlI_RblfAK_pm40UVH8vYg\"\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "GET libros por filtro",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTc0MzIxNzJ9.wlaH6WGmj-IMCwRBLKp_c-c7OiU9dHHZAj48FEyTdRw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/libros?autor=Gabriel García Márquezaa445&genero=Terror&anio=2009",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libros"
+					],
+					"query": [
+						{
+							"key": "autor",
+							"value": "Gabriel García Márquezaa445"
+						},
+						{
+							"key": "genero",
+							"value": "Terror"
+						},
+						{
+							"key": "anio",
+							"value": "2009"
+						}
+					]
+				},
+				"description": "## Endpoint: `/libros?autor=Gabriel García Márquezaa445&genero=Terror&anio=2009`\r\n\r\n### Description\r\n\r\nLista los libros filtrado por autor, género o año de publicación\r\n\r\n### Request\r\n\r\n- **Method:** GET\r\n- **URL:** `http://localhost:8080/libros?autor=Gabriel García Márquezaa445&genero=Terror&anio=2009`\r\n- **Authorization:** Bearer {token}\r\n    \r\n\r\n### Response\r\n\r\n- **Content-Type:** application/json\r\n- **Body:**\r\n    \r\n\r\n``` json\r\n[\r\n    {\r\n        \"_id\": {\r\n            \"$oid\": \"665c26c33e64593dbf089390\"\r\n        },\r\n        \"titulo\": \"El nombre del viento 345\",\r\n        \"autores\": [\r\n            {\r\n                \"_id\": {\r\n                    \"$oid\": \"665c26c33e64593dbf089391\"\r\n                },\r\n                \"nombre_completo\": \"Gabriel García Márquezaa445\",\r\n                \"fecha_nacimiento\": \"1500-03-06\",\r\n                \"nacionalidad\": \"Peruana2\",\r\n                \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n                \"libros_publicados\": [\r\n                    \"Cien años de soledad\",\r\n                    \"El amor en los tiempos del cólera\",\r\n                    \"Crónica de una muerte anunciada\"\r\n                ]\r\n            },\r\n            {\r\n                \"_id\": {\r\n                    \"$oid\": \"665c26c33e64593dbf089392\"\r\n                },\r\n                \"nombre_completo\": \"Gabriel García Márquezaa213\",\r\n                \"fecha_nacimiento\": \"1927-03-06\",\r\n                \"nacionalidad\": \"Ecuatorianawww\",\r\n                \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n                \"libros_publicados\": [\r\n                    \"Cien años de soledad\",\r\n                    \"El amor en los tiempos del cólera\",\r\n                    \"Crónica de una muerte anunciada\"\r\n                ]\r\n            }\r\n        ],\r\n        \"anio_publicacion\": 2009,\r\n        \"generos\": [\r\n            \"Fantasía\",\r\n            \"Terror\",\r\n            \"Novela\"\r\n        ],\r\n        \"descripcion\": \"La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss\",\r\n        \"isbn\": \"978-84-95922-77-13\"\r\n    }\r\n]\r\n\r\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "GET libros por id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTc0MzIwNDF9.GHssz8nlT8-jO268YZQKI2p4dh_R6Ei5Qrv1tG3yNNE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/libros/665c266f3e64593dbf08938a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libros",
+						"665c266f3e64593dbf08938a"
+					]
+				},
+				"description": "## Endpoint: `/libros/665c266f3e64593dbf08938a`\r\n\r\n### Description\r\n\r\nLista un libro por id.\r\n\r\n### Request\r\n\r\n- **Method:** GET\r\n- **URL:** `http://localhost:8080/libros/665c266f3e64593dbf08938a`\r\n- **Authorization:** Bearer {token}\r\n    \r\n\r\n### Response\r\n\r\n- **Content-Type:** application/json\r\n- **Body:**\r\n    \r\n\r\n``` json\r\n[\r\n    {\r\n        \"_id\": {\r\n            \"$oid\": \"665c266f3e64593dbf08938a\"\r\n        },\r\n        \"titulo\": \"El nombre del viento\",\r\n        \"autores\": [\r\n            {\r\n                \"_id\": {\r\n                    \"$oid\": \"665c266f3e64593dbf08938b\"\r\n                },\r\n                \"nombre_completo\": \"Gabriel García Márquezaa4\",\r\n                \"fecha_nacimiento\": \"1927-03-06\",\r\n                \"nacionalidad\": \"Colombiano\",\r\n                \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n                \"libros_publicados\": [\r\n                    \"Cien años de soledad\",\r\n                    \"El amor en los tiempos del cólera\",\r\n                    \"Crónica de una muerte anunciada\"\r\n                ]\r\n            },\r\n            {\r\n                \"_id\": {\r\n                    \"$oid\": \"665c266f3e64593dbf08938c\"\r\n                },\r\n                \"nombre_completo\": \"Gabriel García Márquezaa2\",\r\n                \"fecha_nacimiento\": \"1927-03-06\",\r\n                \"nacionalidad\": \"Colombiano\",\r\n                \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n                \"libros_publicados\": [\r\n                    \"Cien años de soledad\",\r\n                    \"El amor en los tiempos del cólera\",\r\n                    \"Crónica de una muerte anunciada\"\r\n                ]\r\n            }\r\n        ],\r\n        \"anio_publicacion\": 2007,\r\n        \"generos\": [\r\n            \"Fantasía\"\r\n        ],\r\n        \"descripcion\": \"La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss\",\r\n        \"isbn\": \"978-84-95922-77-8\"\r\n    }\r\n]\r\n\r\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "POST libros",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTc0MzMzODd9.VzzXZdmD7yBBpqVNXahAB2Cedb24zED6XhcmNtjEPkg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"El nombre del viento 123\",\r\n    \"autores\": [\r\n        {\r\n            \"nombre_completo\": \"Gabriel García 123\",\r\n            \"fecha_nacimiento\": \"1927-03-06\",\r\n            \"nacionalidad\": \"Colombiano\",\r\n            \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n            \"libros_publicados\": [\"Cien años de soledad\", \"El amor en los tiempos del cólera\", \"Crónica de una muerte anunciada\"]\r\n        },\r\n        {\r\n            \"nombre_completo\": \"Gabriel García 456\",\r\n            \"fecha_nacimiento\": \"1927-03-06\",\r\n            \"nacionalidad\": \"Colombiano\",\r\n            \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n            \"libros_publicados\": [\"Cien años de soledad\", \"El amor en los tiempos del cólera\", \"Crónica de una muerte anunciada\"]\r\n        }\r\n    ],\r\n    \"anio_publicacion\": 2009,\r\n    \"generos\": [\"Fantasía\", \"Terror\"],\r\n    \"descripcion\": \"La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss\",\r\n    \"isbn\": \"978-84-95922-77-19\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/libros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libros"
+					]
+				},
+				"description": "## Endpoint: `/libros`\n\n### Description\n\nRegistra un libro.\n\n### Request\n\n- **Method:** POST\n- **URL:** `http://localhost:8080/libros`\n- **Authorization:** Bearer {token}\n    \n### Request\n\n- **Content-Type:** application/json\n- **Body:**\n\n\n``` json\n{\n    \"titulo\": \"El nombre del viento 123\",\n    \"autores\": [\n        {\n            \"nombre_completo\": \"Gabriel García 123\",\n            \"fecha_nacimiento\": \"1927-03-06\",\n            \"nacionalidad\": \"Colombiano\",\n            \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\n            \"libros_publicados\": [\"Cien años de soledad\", \"El amor en los tiempos del cólera\", \"Crónica de una muerte anunciada\"]\n        },\n        {\n            \"nombre_completo\": \"Gabriel García 456\",\n            \"fecha_nacimiento\": \"1927-03-06\",\n            \"nacionalidad\": \"Colombiano\",\n            \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\n            \"libros_publicados\": [\"Cien años de soledad\", \"El amor en los tiempos del cólera\", \"Crónica de una muerte anunciada\"]\n        }\n    ],\n    \"anio_publicacion\": 2009,\n    \"generos\": [\"Fantasía\", \"Terror\"],\n    \"descripcion\": \"La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss\",\n    \"isbn\": \"978-84-95922-77-19\"\n}\n```\n\n\n### Response\n\n- **Content-Type:** application/json\n- **Body:**\n    \n\n``` json\n{\n    \"titulo\": \"El nombre del viento 123\",\n    \"autores\": [\n        \"665df3b1a853345b870afb06\",\n        \"665df3b1a853345b870afb07\"\n    ],\n    \"anio_publicacion\": 2009,\n    \"generos\": [\n        \"Fantasía\",\n        \"Terror\"\n    ],\n    \"descripcion\": \"La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss\",\n    \"isbn\": \"978-84-95922-77-19\",\n    \"_id\": \"665df3b1a853345b870afb05\"\n}\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT libros",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTc0MzMzODd9.VzzXZdmD7yBBpqVNXahAB2Cedb24zED6XhcmNtjEPkg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"El nombre del viento 345\",\r\n    \"autores\": [\r\n        {\r\n            \"id\": \"665c26c33e64593dbf089391\",\r\n            \"nombre_completo\": \"Gabriel García Márquezaa445\",\r\n            \"fecha_nacimiento\": \"1500-03-06\",\r\n            \"nacionalidad\": \"Peruana2\",\r\n            \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n            \"libros_publicados\": [\"Cien años de soledad\", \"El amor en los tiempos del cólera\", \"Crónica de una muerte anunciada\"]\r\n        },\r\n        {\r\n            \"id\": \"665c26c33e64593dbf089392\",\r\n            \"nombre_completo\": \"Gabriel García Márquezaa213\",\r\n            \"fecha_nacimiento\": \"1927-03-06\",\r\n            \"nacionalidad\": \"Ecuatorianawww\",\r\n            \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n            \"libros_publicados\": [\"Cien años de soledad\", \"El amor en los tiempos del cólera\", \"Crónica de una muerte anunciada\"]\r\n        }\r\n    ],\r\n    \"anio_publicacion\": 2009,\r\n    \"generos\": [\"Fantasía\", \"Terror\", \"Novela\"],\r\n    \"descripcion\": \"La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss\",\r\n    \"isbn\": \"978-84-95922-77-13\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/libros/665c26c33e64593dbf089390",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libros",
+						"665c26c33e64593dbf089390"
+					]
+				},
+				"description": "## Endpoint: `/libros/665c26c33e64593dbf089390`\r\n\r\n### Description\r\n\r\nActualiza un libro.\r\n\r\n### Request\r\n\r\n- **Method:** PUT\r\n- **URL:** `http://localhost:8080/libros/665c26c33e64593dbf089390`\r\n- **Authorization:** Bearer {token}\r\n    \r\n### Request\r\n\r\n- **Content-Type:** application/json\r\n- **Body:**\r\n\r\n\r\n``` json\r\n{\r\n    \"titulo\": \"El nombre del viento 345\",\r\n    \"autores\": [\r\n        {\r\n            \"id\": \"665c26c33e64593dbf089391\",\r\n            \"nombre_completo\": \"Gabriel García Márquezaa445\",\r\n            \"fecha_nacimiento\": \"1500-03-06\",\r\n            \"nacionalidad\": \"Peruana2\",\r\n            \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n            \"libros_publicados\": [\"Cien años de soledad\", \"El amor en los tiempos del cólera\", \"Crónica de una muerte anunciada\"]\r\n        },\r\n        {\r\n            \"id\": \"665c26c33e64593dbf089392\",\r\n            \"nombre_completo\": \"Gabriel García Márquezaa213\",\r\n            \"fecha_nacimiento\": \"1927-03-06\",\r\n            \"nacionalidad\": \"Ecuatorianawww\",\r\n            \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n            \"libros_publicados\": [\"Cien años de soledad\", \"El amor en los tiempos del cólera\", \"Crónica de una muerte anunciada\"]\r\n        }\r\n    ],\r\n    \"anio_publicacion\": 2009,\r\n    \"generos\": [\"Fantasía\", \"Terror\", \"Novela\"],\r\n    \"descripcion\": \"La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss\",\r\n    \"isbn\": \"978-84-95922-77-13\"\r\n}\r\n```\r\n\r\n\r\n### Response\r\n\r\n- **Content-Type:** application/json\r\n- **Body:**\r\n    \r\n\r\n``` json\r\n{\r\n    \"_id\": \"665c26c33e64593dbf089390\",\r\n    \"titulo\": \"El nombre del viento 345\",\r\n    \"autores\": [\r\n        \"665c26c33e64593dbf089391\",\r\n        \"665c26c33e64593dbf089392\"\r\n    ],\r\n    \"anio_publicacion\": 2009,\r\n    \"generos\": [\r\n        \"Fantasía\",\r\n        \"Terror\",\r\n        \"Novela\"\r\n    ],\r\n    \"descripcion\": \"La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss\",\r\n    \"isbn\": \"978-84-95922-77-13\"\r\n}\r\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE libros",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTc0MzM5Nzl9.Nqcrs_CtRaEKsS8F_j2QRtubCQMz9c8EpT1M8c2oyXg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/libros/665df3b1a853345b870afb05",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"libros",
+						"665df3b1a853345b870afb05"
+					]
+				},
+				"description": "## Endpoint: `/libros/665df3b1a853345b870afb05`\r\n\r\n### Description\r\n\r\nElimina un libro.\r\n\r\n### Request\r\n\r\n- **Method:** DELETE\r\n- **URL:** `http://localhost:8080/libros/665df3b1a853345b870afb05`\r\n- **Authorization:** Bearer {token}\r\n    \r\n\r\n### Response\r\n\r\n- **Content-Type:** application/json\r\n- **Body:**\r\n    \r\n\r\n``` json\r\n{\r\n    \"_id\": \"665df3b1a853345b870afb05\",\r\n    \"titulo\": \"El nombre del viento 123\",\r\n    \"autores\": [\r\n        \"665df3b1a853345b870afb06\",\r\n        \"665df3b1a853345b870afb07\"\r\n    ],\r\n    \"anio_publicacion\": 2009,\r\n    \"generos\": [\r\n        \"Fantasía\",\r\n        \"Terror\"\r\n    ],\r\n    \"descripcion\": \"La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss\",\r\n    \"isbn\": \"978-84-95922-77-19\"\r\n}\r\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "GET autores",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTc0MzQyMjV9.EcIr-u-nc2n8T0yXzdNygsNpRlDdFAaCR_6meuyelKI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autores"
+					]
+				},
+				"description": "## Endpoint: `/autores`\r\n\r\n### Description\r\n\r\nLista todos los autores de la base de datos.\r\n\r\n### Request\r\n\r\n- **Method:** GET\r\n- **URL:** `http://localhost:8080/autores`\r\n- **Authorization:** Bearer {token}\r\n    \r\n\r\n### Response\r\n\r\n- **Content-Type:** application/json\r\n- **Body:**\r\n    \r\n\r\n``` json\r\n[\r\n    {\r\n        \"_id\": {\r\n            \"$oid\": \"665c266f3e64593dbf08938b\"\r\n        },\r\n        \"nombre_completo\": \"Gabriel García Márquezaa4\",\r\n        \"fecha_nacimiento\": \"1927-03-06\",\r\n        \"nacionalidad\": \"Colombiano\",\r\n        \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n        \"libros_publicados\": [\r\n            \"Cien años de soledad\",\r\n            \"El amor en los tiempos del cólera\",\r\n            \"Crónica de una muerte anunciada\"\r\n        ]\r\n    },\r\n    {\r\n        \"_id\": {\r\n            \"$oid\": \"665c266f3e64593dbf08938c\"\r\n        },\r\n        \"nombre_completo\": \"Gabriel García Márquezaa2\",\r\n        \"fecha_nacimiento\": \"1927-03-06\",\r\n        \"nacionalidad\": \"Colombiano\",\r\n        \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n        \"libros_publicados\": [\r\n            \"Cien años de soledad\",\r\n            \"El amor en los tiempos del cólera\",\r\n            \"Crónica de una muerte anunciada\"\r\n        ]\r\n    },\r\n    {\r\n        \"_id\": {\r\n            \"$oid\": \"665c26903e64593dbf08938e\"\r\n        },\r\n        \"nombre_completo\": \"Gabriel García Márquezaa44\",\r\n        \"fecha_nacimiento\": \"1927-03-06\",\r\n        \"nacionalidad\": \"Colombiano\",\r\n        \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n        \"libros_publicados\": [\r\n            \"Cien años de soledad\",\r\n            \"El amor en los tiempos del cólera\",\r\n            \"Crónica de una muerte anunciada\"\r\n        ]\r\n    },\r\n    {\r\n        \"_id\": {\r\n            \"$oid\": \"665c26903e64593dbf08938f\"\r\n        },\r\n        \"nombre_completo\": \"Gabriel García Márquezaa21\",\r\n        \"fecha_nacimiento\": \"1927-03-06\",\r\n        \"nacionalidad\": \"Colombiano\",\r\n        \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n        \"libros_publicados\": [\r\n            \"Cien años de soledad\",\r\n            \"El amor en los tiempos del cólera\",\r\n            \"Crónica de una muerte anunciada\"\r\n        ]\r\n    },\r\n    {\r\n        \"_id\": {\r\n            \"$oid\": \"665c26c33e64593dbf089391\"\r\n        },\r\n        \"nombre_completo\": \"Gabriel García Márquezaa445\",\r\n        \"fecha_nacimiento\": \"1500-03-06\",\r\n        \"nacionalidad\": \"Peruana2\",\r\n        \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n        \"libros_publicados\": [\r\n            \"Cien años de soledad\",\r\n            \"El amor en los tiempos del cólera\",\r\n            \"Crónica de una muerte anunciada\"\r\n        ]\r\n    },\r\n    {\r\n        \"_id\": {\r\n            \"$oid\": \"665c26c33e64593dbf089392\"\r\n        },\r\n        \"nombre_completo\": \"Gabriel García Márquezaa213\",\r\n        \"fecha_nacimiento\": \"1927-03-06\",\r\n        \"nacionalidad\": \"Ecuatorianawww\",\r\n        \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n        \"libros_publicados\": [\r\n            \"Cien años de soledad\",\r\n            \"El amor en los tiempos del cólera\",\r\n            \"Crónica de una muerte anunciada\"\r\n        ]\r\n    },\r\n    {\r\n        \"_id\": {\r\n            \"$oid\": \"665d388398505004bf05c872\"\r\n        },\r\n        \"nombre_completo\": \"Henry Ortiz\",\r\n        \"fecha_nacimiento\": \"1996-06-27\",\r\n        \"nacionalidad\": \"Ecuatoriano\",\r\n        \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n        \"libros_publicados\": [\r\n            \"Cien años de soledad\",\r\n            \"El amor en los tiempos del cólera\",\r\n            \"Crónica de una muerte anunciada\"\r\n        ]\r\n    },\r\n    {\r\n        \"_id\": {\r\n            \"$oid\": \"665d3c4f98505004bf05c874\"\r\n        },\r\n        \"nombre_completo\": \"Henry Ortiz 3\",\r\n        \"fecha_nacimiento\": \"1996-06-27\",\r\n        \"nacionalidad\": \"Ecuatoriano\",\r\n        \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n        \"libros_publicados\": [\r\n            \"Cien años de soledad\",\r\n            \"El amor en los tiempos del cólera\",\r\n            \"Crónica de una muerte anunciada\"\r\n        ]\r\n    },\r\n    {\r\n        \"_id\": {\r\n            \"$oid\": \"665df1aaa853345b870afb03\"\r\n        },\r\n        \"nombre_completo\": \"Gabriel García Márquezaa445ddd\",\r\n        \"fecha_nacimiento\": \"1927-03-06\",\r\n        \"nacionalidad\": \"Colombiano\",\r\n        \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n        \"libros_publicados\": [\r\n            \"Cien años de soledad\",\r\n            \"El amor en los tiempos del cólera\",\r\n            \"Crónica de una muerte anunciada\"\r\n        ]\r\n    },\r\n    {\r\n        \"_id\": {\r\n            \"$oid\": \"665df1aaa853345b870afb04\"\r\n        },\r\n        \"nombre_completo\": \"Gabriel García Márquezaa213ddd\",\r\n        \"fecha_nacimiento\": \"1927-03-06\",\r\n        \"nacionalidad\": \"Colombiano\",\r\n        \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n        \"libros_publicados\": [\r\n            \"Cien años de soledad\",\r\n            \"El amor en los tiempos del cólera\",\r\n            \"Crónica de una muerte anunciada\"\r\n        ]\r\n    }\r\n]\r\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "GET autores por filtro",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTc0MzQzNjl9.GfxKVYbggHBp6KS-MjJ1xLd_gCpcw1VFaGtAbGGwS30",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autores?nombre=gabriel&nacionalidad=ecuatoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autores"
+					],
+					"query": [
+						{
+							"key": "nombre",
+							"value": "gabriel"
+						},
+						{
+							"key": "nacionalidad",
+							"value": "ecuatoria"
+						}
+					]
+				},
+				"description": "## Endpoint: `/autores?nombre=gabriel&nacionalidad=ecuatoria`\r\n\r\n### Description\r\n\r\nLista los autores filtrado por autor o nacionalidad.\r\n\r\n### Request\r\n\r\n- **Method:** GET\r\n- **URL:** `http://localhost:8080/autores?nombre=gabriel&nacionalidad=ecuatoria`\r\n- **Authorization:** Bearer {token}\r\n    \r\n\r\n### Response\r\n\r\n- **Content-Type:** application/json\r\n- **Body:**\r\n    \r\n\r\n``` json\r\n[\r\n    {\r\n        \"_id\": {\r\n            \"$oid\": \"665c26c33e64593dbf089392\"\r\n        },\r\n        \"nombre_completo\": \"Gabriel García Márquezaa213\",\r\n        \"fecha_nacimiento\": \"1927-03-06\",\r\n        \"nacionalidad\": \"Ecuatorianawww\",\r\n        \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n        \"libros_publicados\": [\r\n            \"Cien años de soledad\",\r\n            \"El amor en los tiempos del cólera\",\r\n            \"Crónica de una muerte anunciada\"\r\n        ]\r\n    },\r\n    {\r\n        \"_id\": {\r\n            \"$oid\": \"665d388398505004bf05c872\"\r\n        },\r\n        \"nombre_completo\": \"Henry Ortiz\",\r\n        \"fecha_nacimiento\": \"1996-06-27\",\r\n        \"nacionalidad\": \"Ecuatoriano\",\r\n        \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n        \"libros_publicados\": [\r\n            \"Cien años de soledad\",\r\n            \"El amor en los tiempos del cólera\",\r\n            \"Crónica de una muerte anunciada\"\r\n        ]\r\n    },\r\n    {\r\n        \"_id\": {\r\n            \"$oid\": \"665d3c4f98505004bf05c874\"\r\n        },\r\n        \"nombre_completo\": \"Henry Ortiz 3\",\r\n        \"fecha_nacimiento\": \"1996-06-27\",\r\n        \"nacionalidad\": \"Ecuatoriano\",\r\n        \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n        \"libros_publicados\": [\r\n            \"Cien años de soledad\",\r\n            \"El amor en los tiempos del cólera\",\r\n            \"Crónica de una muerte anunciada\"\r\n        ]\r\n    }\r\n]\r\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "GET autor por id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTc0MzQ1MDJ9.q0WsSEv0y6KsSJNHaXbtX7J_xKOuZ1h9eiHxcGalYEI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autores/665d3c4f98505004bf05c874",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autores",
+						"665d3c4f98505004bf05c874"
+					]
+				},
+				"description": "## Endpoint: `/autores/665d3c4f98505004bf05c874`\r\n\r\n### Description\r\n\r\nLista un autor por id.\r\n\r\n### Request\r\n\r\n- **Method:** GET\r\n- **URL:** `http://localhost:8080/autores/665d3c4f98505004bf05c874`\r\n- **Authorization:** Bearer {token}\r\n    \r\n\r\n### Response\r\n\r\n- **Content-Type:** application/json\r\n- **Body:**\r\n    \r\n\r\n``` json\r\n{\r\n    \"_id\": \"665d3c4f98505004bf05c874\",\r\n    \"nombre_completo\": \"Henry Ortiz 3\",\r\n    \"fecha_nacimiento\": \"1996-06-27\",\r\n    \"nacionalidad\": \"Ecuatoriano\",\r\n    \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n    \"libros_publicados\": [\r\n        \"Cien años de soledad\",\r\n        \"El amor en los tiempos del cólera\",\r\n        \"Crónica de una muerte anunciada\"\r\n    ]\r\n}\r\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "POST autores",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTc0MzQ1MDJ9.q0WsSEv0y6KsSJNHaXbtX7J_xKOuZ1h9eiHxcGalYEI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre_completo\": \"Henry Ortiz 5\",\r\n    \"fecha_nacimiento\": \"1996-06-27\",\r\n    \"nacionalidad\": \"Ecuatoriano\",\r\n    \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n    \"libros_publicados\": [\"Cien años de soledad\", \"El amor en los tiempos del cólera\", \"Crónica de una muerte anunciada\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/autores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autores"
+					]
+				},
+				"description": "## Endpoint: `/autores`\r\n\r\n### Description\r\n\r\nRegistra un libro.\r\n\r\n### Request\r\n\r\n- **Method:** POST\r\n- **URL:** `http://localhost:8080/autores`\r\n- **Authorization:** Bearer {token}\r\n    \r\n### Request\r\n\r\n- **Content-Type:** application/json\r\n- **Body:**\r\n\r\n\r\n``` json\r\n{\r\n    \"nombre_completo\": \"Henry Ortiz 5\",\r\n    \"fecha_nacimiento\": \"1996-06-27\",\r\n    \"nacionalidad\": \"Ecuatoriano\",\r\n    \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n    \"libros_publicados\": [\"Cien años de soledad\", \"El amor en los tiempos del cólera\", \"Crónica de una muerte anunciada\"]\r\n}\r\n```\r\n\r\n\r\n### Response\r\n\r\n- **Content-Type:** application/json\r\n- **Body:**\r\n    \r\n\r\n``` json\r\n{\r\n    \"nombre_completo\": \"Henry Ortiz 5\",\r\n    \"fecha_nacimiento\": \"1996-06-27\",\r\n    \"nacionalidad\": \"Ecuatoriano\",\r\n    \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n    \"libros_publicados\": [\r\n        \"Cien años de soledad\",\r\n        \"El amor en los tiempos del cólera\",\r\n        \"Crónica de una muerte anunciada\"\r\n    ],\r\n    \"_id\": \"665df7b9a853345b870afb08\"\r\n}\r\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT autor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTc0MzQ3MDV9.vb9H6hbpIabnnmA2BTsLVpWxEDWPuAzpWZLDrhSwE-s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre_completo\": \"Henry Ortiz 555\",\r\n    \"fecha_nacimiento\": \"1996-06-27\",\r\n    \"nacionalidad\": \"Ecuatoriano\",\r\n    \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n    \"libros_publicados\": [\"Cien años de soledad\", \"El amor en los tiempos del cólera\", \"Crónica de una muerte anunciada\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/autores/665df7b9a853345b870afb08",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autores",
+						"665df7b9a853345b870afb08"
+					]
+				},
+				"description": "## Endpoint: `/autores/665df7b9a853345b870afb08`\r\n\r\n### Description\r\n\r\nActualiza un autor.\r\n\r\n### Request\r\n\r\n- **Method:** PUT\r\n- **URL:** `http://localhost:8080/autores/665df7b9a853345b870afb08`\r\n- **Authorization:** Bearer {token}\r\n    \r\n### Request\r\n\r\n- **Content-Type:** application/json\r\n- **Body:**\r\n\r\n\r\n``` json\r\n{\r\n    \"nombre_completo\": \"Henry Ortiz 555\",\r\n    \"fecha_nacimiento\": \"1996-06-27\",\r\n    \"nacionalidad\": \"Ecuatoriano\",\r\n    \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n    \"libros_publicados\": [\"Cien años de soledad\", \"El amor en los tiempos del cólera\", \"Crónica de una muerte anunciada\"]\r\n}\r\n```\r\n\r\n\r\n### Response\r\n\r\n- **Content-Type:** application/json\r\n- **Body:**\r\n    \r\n\r\n``` json\r\n{\r\n    \"_id\": \"665df7b9a853345b870afb08\",\r\n    \"nombre_completo\": \"Henry Ortiz 555\",\r\n    \"fecha_nacimiento\": \"1996-06-27\",\r\n    \"nacionalidad\": \"Ecuatoriano\",\r\n    \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n    \"libros_publicados\": [\r\n        \"Cien años de soledad\",\r\n        \"El amor en los tiempos del cólera\",\r\n        \"Crónica de una muerte anunciada\"\r\n    ]\r\n}\r\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE autor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTc0MzQ4MzZ9.-zinBTEL5NLfeiw_WWySc2ymTmoFYPCWaZ9092ZloiI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/autores/665df7b9a853345b870afb08",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"autores",
+						"665df7b9a853345b870afb08"
+					]
+				},
+				"description": "## Endpoint: `/autores/665df7b9a853345b870afb08`\r\n\r\n### Description\r\n\r\nElimina un autor.\r\n\r\n### Request\r\n\r\n- **Method:** DELETE\r\n- **URL:** `http://localhost:8080/autores/665df7b9a853345b870afb08`\r\n- **Authorization:** Bearer {token}\r\n    \r\n\r\n### Response\r\n\r\n- **Content-Type:** application/json\r\n- **Body:**\r\n    \r\n\r\n``` json\r\n{\r\n    \"_id\": \"665df7b9a853345b870afb08\",\r\n    \"nombre_completo\": \"Henry Ortiz 555\",\r\n    \"fecha_nacimiento\": \"1996-06-27\",\r\n    \"nacionalidad\": \"Ecuatoriano\",\r\n    \"biografia\": \"Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.\",\r\n    \"libros_publicados\": [\r\n        \"Cien años de soledad\",\r\n        \"El amor en los tiempos del cólera\",\r\n        \"Crónica de una muerte anunciada\"\r\n    ]\r\n}\r\n ```"
+			},
+			"response": []
+		}
+	]
+}
