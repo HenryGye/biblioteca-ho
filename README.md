@@ -92,3 +92,495 @@ db.autores.createIndex({ "nacionalidad": 1 })
 db.autores.createIndex({ "nacionalidad": 1, "nombre_completo": 1 })
 ```
 
+# API Endpoint Documentación
+
+## Endpoint: `/generate-token`
+
+### Description
+
+Este endpoint se utiliza para generar un token JWT (JSON Web Token) que se utilizará para la autenticación de las apis.
+
+### Request
+
+- **Method:** GET
+- **URL:** `http://localhost:8080/generate-token`
+
+### Response
+
+- **Content-Type:** application/json
+- **Body:**
+    
+
+``` json
+{
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MTczOTEwMzl9.XC_gT7qLFxKmstCkGBQfYwlI_RblfAK_pm40UVH8vYg"
+}
+
+ ```
+
+## Endpoint: `/libros`
+
+### Description
+
+Lista todos los libros de la base de datos.
+
+### Request
+
+- **Method:** GET
+- **URL:** `http://localhost:8080/libros`
+- **Authorization:** Bearer {token}
+    
+
+### Response
+
+- **Content-Type:** application/json
+- **Body:**
+    
+
+``` json
+[
+    {
+        "_id": {
+            "$oid": "665c266f3e64593dbf08938a"
+        },
+        "titulo": "El nombre del viento",
+        "autores": [
+            {
+                "_id": {
+                    "$oid": "665c266f3e64593dbf08938b"
+                },
+                "nombre_completo": "Gabriel García Márquezaa4",
+                "fecha_nacimiento": "1927-03-06",
+                "nacionalidad": "Colombiano",
+                "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+                "libros_publicados": [
+                    "Cien años de soledad",
+                    "El amor en los tiempos del cólera",
+                    "Crónica de una muerte anunciada"
+                ]
+            },
+            {
+                "_id": {
+                    "$oid": "665c266f3e64593dbf08938c"
+                },
+                "nombre_completo": "Gabriel García Márquezaa2",
+                "fecha_nacimiento": "1927-03-06",
+                "nacionalidad": "Colombiano",
+                "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+                "libros_publicados": [
+                    "Cien años de soledad",
+                    "El amor en los tiempos del cólera",
+                    "Crónica de una muerte anunciada"
+                ]
+            }
+        ],
+        "anio_publicacion": 2007,
+        "generos": [
+            "Fantasía"
+        ],
+        "descripcion": "La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss",
+        "isbn": "978-84-95922-77-8"
+    },
+    {
+        "_id": {
+            "$oid": "665c26903e64593dbf08938d"
+        },
+        "titulo": "El nombre del viento 2",
+        "autores": [
+            {
+                "_id": {
+                    "$oid": "665c26903e64593dbf08938e"
+                },
+                "nombre_completo": "Gabriel García Márquezaa44",
+                "fecha_nacimiento": "1927-03-06",
+                "nacionalidad": "Colombiano",
+                "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+                "libros_publicados": [
+                    "Cien años de soledad",
+                    "El amor en los tiempos del cólera",
+                    "Crónica de una muerte anunciada"
+                ]
+            },
+            {
+                "_id": {
+                    "$oid": "665c26903e64593dbf08938f"
+                },
+                "nombre_completo": "Gabriel García Márquezaa21",
+                "fecha_nacimiento": "1927-03-06",
+                "nacionalidad": "Colombiano",
+                "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+                "libros_publicados": [
+                    "Cien años de soledad",
+                    "El amor en los tiempos del cólera",
+                    "Crónica de una muerte anunciada"
+                ]
+            }
+        ],
+        "anio_publicacion": 2008,
+        "generos": [
+            "Fantasía"
+        ],
+        "descripcion": "La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss",
+        "isbn": "978-84-95922-77-9"
+    },
+    {
+        "_id": {
+            "$oid": "665c26c33e64593dbf089390"
+        },
+        "titulo": "El nombre del viento 345",
+        "autores": [
+            {
+                "_id": {
+                    "$oid": "665c26c33e64593dbf089391"
+                },
+                "nombre_completo": "Gabriel García Márquezaa445",
+                "fecha_nacimiento": "1500-03-06",
+                "nacionalidad": "Peruana2",
+                "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+                "libros_publicados": [
+                    "Cien años de soledad",
+                    "El amor en los tiempos del cólera",
+                    "Crónica de una muerte anunciada"
+                ]
+            },
+            {
+                "_id": {
+                    "$oid": "665c26c33e64593dbf089392"
+                },
+                "nombre_completo": "Gabriel García Márquezaa213",
+                "fecha_nacimiento": "1927-03-06",
+                "nacionalidad": "Ecuatorianawww",
+                "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+                "libros_publicados": [
+                    "Cien años de soledad",
+                    "El amor en los tiempos del cólera",
+                    "Crónica de una muerte anunciada"
+                ]
+            }
+        ],
+        "anio_publicacion": 2009,
+        "generos": [
+            "Fantasía",
+            "Terror",
+            "Novela"
+        ],
+        "descripcion": "La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss",
+        "isbn": "978-84-95922-77-13"
+    }
+]
+
+ ```
+
+## Endpoint: `/libros?autor=Gabriel García Márquezaa445&genero=Terror&anio=2009`
+
+### Description
+
+Lista los libros filtrado por autor, género o año de publicación
+
+### Request
+
+- **Method:** GET
+- **URL:** `http://localhost:8080/libros?autor=Gabriel García Márquezaa445&genero=Terror&anio=2009`
+- **Authorization:** Bearer {token}
+    
+
+### Response
+
+- **Content-Type:** application/json
+- **Body:**
+    
+
+``` json
+[
+    {
+        "_id": {
+            "$oid": "665c26c33e64593dbf089390"
+        },
+        "titulo": "El nombre del viento 345",
+        "autores": [
+            {
+                "_id": {
+                    "$oid": "665c26c33e64593dbf089391"
+                },
+                "nombre_completo": "Gabriel García Márquezaa445",
+                "fecha_nacimiento": "1500-03-06",
+                "nacionalidad": "Peruana2",
+                "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+                "libros_publicados": [
+                    "Cien años de soledad",
+                    "El amor en los tiempos del cólera",
+                    "Crónica de una muerte anunciada"
+                ]
+            },
+            {
+                "_id": {
+                    "$oid": "665c26c33e64593dbf089392"
+                },
+                "nombre_completo": "Gabriel García Márquezaa213",
+                "fecha_nacimiento": "1927-03-06",
+                "nacionalidad": "Ecuatorianawww",
+                "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+                "libros_publicados": [
+                    "Cien años de soledad",
+                    "El amor en los tiempos del cólera",
+                    "Crónica de una muerte anunciada"
+                ]
+            }
+        ],
+        "anio_publicacion": 2009,
+        "generos": [
+            "Fantasía",
+            "Terror",
+            "Novela"
+        ],
+        "descripcion": "La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss",
+        "isbn": "978-84-95922-77-13"
+    }
+]
+
+ ```
+
+## Endpoint: `/libros/665c266f3e64593dbf08938a`
+
+### Description
+
+Lista un libro por id.
+
+### Request
+
+- **Method:** GET
+- **URL:** `http://localhost:8080/libros/665c266f3e64593dbf08938a`
+- **Authorization:** Bearer {token}
+    
+
+### Response
+
+- **Content-Type:** application/json
+- **Body:**
+    
+
+``` json
+[
+    {
+        "_id": {
+            "$oid": "665c266f3e64593dbf08938a"
+        },
+        "titulo": "El nombre del viento",
+        "autores": [
+            {
+                "_id": {
+                    "$oid": "665c266f3e64593dbf08938b"
+                },
+                "nombre_completo": "Gabriel García Márquezaa4",
+                "fecha_nacimiento": "1927-03-06",
+                "nacionalidad": "Colombiano",
+                "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+                "libros_publicados": [
+                    "Cien años de soledad",
+                    "El amor en los tiempos del cólera",
+                    "Crónica de una muerte anunciada"
+                ]
+            },
+            {
+                "_id": {
+                    "$oid": "665c266f3e64593dbf08938c"
+                },
+                "nombre_completo": "Gabriel García Márquezaa2",
+                "fecha_nacimiento": "1927-03-06",
+                "nacionalidad": "Colombiano",
+                "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+                "libros_publicados": [
+                    "Cien años de soledad",
+                    "El amor en los tiempos del cólera",
+                    "Crónica de una muerte anunciada"
+                ]
+            }
+        ],
+        "anio_publicacion": 2007,
+        "generos": [
+            "Fantasía"
+        ],
+        "descripcion": "La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss",
+        "isbn": "978-84-95922-77-8"
+    }
+]
+
+ ```
+
+## Endpoint: `/libros`
+
+### Description
+
+Registra un libro.
+
+### Request
+
+- **Method:** POST
+- **URL:** `http://localhost:8080/libros`
+- **Authorization:** Bearer {token}
+    
+### Request
+
+- **Content-Type:** application/json
+- **Body:**
+
+
+``` json
+{
+    "titulo": "El nombre del viento 123",
+    "autores": [
+        {
+            "nombre_completo": "Gabriel García 123",
+            "fecha_nacimiento": "1927-03-06",
+            "nacionalidad": "Colombiano",
+            "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+            "libros_publicados": ["Cien años de soledad", "El amor en los tiempos del cólera", "Crónica de una muerte anunciada"]
+        },
+        {
+            "nombre_completo": "Gabriel García 456",
+            "fecha_nacimiento": "1927-03-06",
+            "nacionalidad": "Colombiano",
+            "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+            "libros_publicados": ["Cien años de soledad", "El amor en los tiempos del cólera", "Crónica de una muerte anunciada"]
+        }
+    ],
+    "anio_publicacion": 2009,
+    "generos": ["Fantasía", "Terror"],
+    "descripcion": "La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss",
+    "isbn": "978-84-95922-77-19"
+}
+```
+
+
+### Response
+
+- **Content-Type:** application/json
+- **Body:**
+    
+
+``` json
+{
+    "titulo": "El nombre del viento 123",
+    "autores": [
+        "665df3b1a853345b870afb06",
+        "665df3b1a853345b870afb07"
+    ],
+    "anio_publicacion": 2009,
+    "generos": [
+        "Fantasía",
+        "Terror"
+    ],
+    "descripcion": "La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss",
+    "isbn": "978-84-95922-77-19",
+    "_id": "665df3b1a853345b870afb05"
+}
+ ```
+
+## Endpoint: `/libros/665c26c33e64593dbf089390`
+
+### Description
+
+Actualiza un libro.
+
+### Request
+
+- **Method:** PUT
+- **URL:** `http://localhost:8080/libros/665c26c33e64593dbf089390`
+- **Authorization:** Bearer {token}
+    
+### Request
+
+- **Content-Type:** application/json
+- **Body:**
+
+
+``` json
+{
+    "titulo": "El nombre del viento 345",
+    "autores": [
+        {
+            "id": "665c26c33e64593dbf089391",
+            "nombre_completo": "Gabriel García Márquezaa445",
+            "fecha_nacimiento": "1500-03-06",
+            "nacionalidad": "Peruana2",
+            "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+            "libros_publicados": ["Cien años de soledad", "El amor en los tiempos del cólera", "Crónica de una muerte anunciada"]
+        },
+        {
+            "id": "665c26c33e64593dbf089392",
+            "nombre_completo": "Gabriel García Márquezaa213",
+            "fecha_nacimiento": "1927-03-06",
+            "nacionalidad": "Ecuatorianawww",
+            "biografia": "Gabriel José de la Concordia García Márquez fue un escritor, guionista, editor y periodista colombiano.",
+            "libros_publicados": ["Cien años de soledad", "El amor en los tiempos del cólera", "Crónica de una muerte anunciada"]
+        }
+    ],
+    "anio_publicacion": 2009,
+    "generos": ["Fantasía", "Terror", "Novela"],
+    "descripcion": "La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss",
+    "isbn": "978-84-95922-77-13"
+}
+```
+
+
+### Response
+
+- **Content-Type:** application/json
+- **Body:**
+    
+
+``` json
+{
+    "_id": "665c26c33e64593dbf089390",
+    "titulo": "El nombre del viento 345",
+    "autores": [
+        "665c26c33e64593dbf089391",
+        "665c26c33e64593dbf089392"
+    ],
+    "anio_publicacion": 2009,
+    "generos": [
+        "Fantasía",
+        "Terror",
+        "Novela"
+    ],
+    "descripcion": "La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss",
+    "isbn": "978-84-95922-77-13"
+}
+ ```
+
+## Endpoint: `/libros/665df3b1a853345b870afb05`
+
+### Description
+
+Elimina un libro.
+
+### Request
+
+- **Method:** DELETE
+- **URL:** `http://localhost:8080/libros/665df3b1a853345b870afb05`
+- **Authorization:** Bearer {token}
+    
+
+### Response
+
+- **Content-Type:** application/json
+- **Body:**
+    
+
+``` json
+{
+    "_id": "665df3b1a853345b870afb05",
+    "titulo": "El nombre del viento 123",
+    "autores": [
+        "665df3b1a853345b870afb06",
+        "665df3b1a853345b870afb07"
+    ],
+    "anio_publicacion": 2009,
+    "generos": [
+        "Fantasía",
+        "Terror"
+    ],
+    "descripcion": "La crónica del asesino de reyes es una trilogía de novelas de fantasía épica escrita por Patrick Rothfuss",
+    "isbn": "978-84-95922-77-19"
+}
+ ```
