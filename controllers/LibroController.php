@@ -84,7 +84,7 @@ class LibroController extends ActiveController
         $libro->load($requestLibro, '');
 
         if (!$libro->validate()) {
-            return ['errors' => $libro->errors];
+            return $this->asJson(['errors' => $libro->errors]);
         }
 
         foreach ($requestAutor as $value) {
@@ -92,11 +92,11 @@ class LibroController extends ActiveController
             $autor->load($value, '');
             
             if (!$autor->validate()) {
-                return ['errors' => $autor->errors];
+                return $this->asJson(['errors' => $autor->errors]);
             }
         }
 
-        return $libro::registrarLibro($requestLibro);
+        return $this->asJson($libro::registrarLibro($requestLibro));
     }
 
     /**
@@ -119,7 +119,7 @@ class LibroController extends ActiveController
         $libro->load($requestLibro, '');
 
         if (!$libro->validate()) {
-            return ['errors' => $libro->errors];
+            return $this->asJson(['errors' => $libro->errors]);
         }
 
         foreach ($requestAutor as $value) {
@@ -133,11 +133,11 @@ class LibroController extends ActiveController
             $autor->load($value, '');
             
             if (!$autor->validate()) {
-                return ['errors' => $autor->errors];
+                return $this->asJson(['errors' => $autor->errors]);
             }
         }
         
-        return $libro::actualizarLibro($libro);
+        return $this->asJson($libro::actualizarLibro($libro));
     }
 
     /**
@@ -155,6 +155,6 @@ class LibroController extends ActiveController
             throw new \yii\web\NotFoundHttpException;
         }
         
-        return $libro::eliminarLibro($libro);
+        return $this->asJson($libro::eliminarLibro($libro));
     }
 }

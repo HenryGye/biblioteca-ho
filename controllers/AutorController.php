@@ -81,10 +81,10 @@ class AutorController extends ActiveController
         $autor->load($request, '');
 
         if (!$autor->validate()) {
-            return ['errors' => $autor->errors];
+            return $this->asJson(['errors' => $autor->errors]);
         }
 
-        return $autor::guardarAutor($autor);
+        return $this->asJson($autor::guardarAutor($autor));
     }
 
     /**
@@ -105,10 +105,10 @@ class AutorController extends ActiveController
         $autor->load($request->post(), '');
 
         if (!$autor->validate()) {
-            return ['errors' => $autor->errors];
+            return $this->asJson(['errors' => $autor->errors]);
         }
         
-        return $autor::guardarAutor($autor);
+        return $this->asJson($autor::guardarAutor($autor));
     }
 
     /**
@@ -126,6 +126,6 @@ class AutorController extends ActiveController
             throw new \yii\web\NotFoundHttpException;
         }
         
-        return $autor::eliminarAutor($autor);
+        return $this->asJson($autor::eliminarAutor($autor));
     }
 }
